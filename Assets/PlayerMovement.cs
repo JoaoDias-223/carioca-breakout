@@ -27,6 +27,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb2D.MovePosition(rb2D.position + Time.fixedDeltaTime * movementSpeed * movement);
+        float limit = 1.0f;
+        
+        if (movement.x != 0 && movement.y != 0)
+        {
+            limit = .7f;
+        }
+        rb2D.MovePosition(rb2D.position + Time.fixedDeltaTime * movementSpeed * limit * movement);
     }
 }
