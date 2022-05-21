@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.h8man.2d.navmeshplus": {
+      "version": "https://github.com/h8man/NavMeshPlus.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "e0b28e4e34152564d4aa727fe36b764fd46c2022"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.4",
       "depth": 1,
@@ -125,7 +132,7 @@
       }
     },
     "com.unity.ide.rider": {
-      "version": "3.0.13",
+      "version": "3.0.14",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -166,18 +173,18 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.sysroot": {
-      "version": "2.0.0",
+      "version": "2.0.2",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.sysroot.linux-x86_64": {
-      "version": "2.0.0",
+      "version": "2.0.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.unity.sysroot": "2.0.0"
+        "com.unity.sysroot": "2.0.2"
       },
       "url": "https://packages.unity.com"
     },
@@ -214,12 +221,12 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.toolchain.linux-x86_64": {
-      "version": "2.0.0",
+      "version": "2.0.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.sysroot": "2.0.0",
-        "com.unity.sysroot.linux-x86_64": "2.0.0"
+        "com.unity.sysroot": "2.0.2",
+        "com.unity.sysroot.linux-x86_64": "2.0.1"
       },
       "url": "https://packages.unity.com"
     },

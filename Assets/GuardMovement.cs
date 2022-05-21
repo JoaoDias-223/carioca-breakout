@@ -128,7 +128,7 @@ public class GuardMovement : MonoBehaviour
     private void RotateColliderBasedOnDirection()
     {
         Vector3 rotation = visionCollider.rotation.eulerAngles;
-        visionCollider.rotation = Quaternion.Euler(rotation.x, rotation.y, GetZetaValueBasedOnAnimationState());
+        visionCollider.rotation = Quaternion.Euler(rotation.x, rotation.y, GetZetaValueBasedOnAnimationClip());
     }
 
     private float GetZetaValueBasedOnAnimationClip()
@@ -163,7 +163,6 @@ public class GuardMovement : MonoBehaviour
         AnimatorStateMachine animatorStateMachine = animatorController.layers[0].stateMachine;
         AnimatorState movementState = animatorStateMachine.states[1].state;
         Motion blendTree = (BlendTree) movementState.motion;
-        blendTree.
 
         if (movementState.name != "Movement")
         {
