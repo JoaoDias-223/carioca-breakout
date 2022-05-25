@@ -1,0 +1,22 @@
+{"frames": [
+
+{
+	"filename": "robotToButton.png",
+	"frame": {"x":0,"y":0,"w":1366,"h":691},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1366,"h":691},
+	"sourceSize": {"w":1366,"h":691},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "buttonHeight.png",
+	"frame": {"x":1366,"y":0,"w":1366,"h":691},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1366,"h":691},
+	"sourceSize": {"w":1366,"h":691},
+	"pivot": {"x":0.5,"y":0.5}
+}
+]
+}
