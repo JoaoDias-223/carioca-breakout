@@ -32,15 +32,22 @@ public class GuardAiMovement : MonoBehaviour
 
     [SerializeField] private bool loopOverWaypoint = false;
 
+    public GameController game;
+
+    private Vector3 initialPosition;
+
     private void Awake()
     {
         navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         rb2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        game = Utils.FindObjectOfType<GameController>();
     }
 
     private void Start()
     {
+        initialPosition = transform.position;
+
         navMeshAgent.updateRotation = false;
         navMeshAgent.updateUpAxis = false;
         navMeshAgent.speed = movementSpeed;
@@ -59,6 +66,8 @@ public class GuardAiMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!game.IsRunning()) return;
+
         Vector3 position = transform.position;
         direction.x = (float) Clamp(movement.x - position.x, -1.0, 1.0);
         direction.y = (float) Clamp(movement.y - position.y, -1.0, 1.0);
@@ -72,6 +81,8 @@ public class GuardAiMovement : MonoBehaviour
 
     private void FixedUpdate ()
     {
+        if (!game.IsRunning()) return;
+
         switch (state)
         {
             case FOLLOW_PATH:
@@ -121,6 +132,8 @@ public class GuardAiMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!game.IsRunning()) return;
+
         if (other.name.Contains("Waypoint"))
         {
             ManageBodyCollider(other);
@@ -173,6 +186,18 @@ public class GuardAiMovement : MonoBehaviour
         if (other.transform.name.Equals("Player"))
         {
             Debug.Log("Encontrou JOGADOR!");
+            game.Lost();
         }
+    }
+
+    public void ResetOnLose()
+    {
+        transform.position = initialPosition;
+        rb2D.velocity = Vector2.zero;
+        waypointIndex = 0;
+        goForward = 1;
+        state = FOLLOW_PATH;
+
+        SetDestinationGivenWaypoint(waypoints[waypointIndex].transform.position);
     }
 }

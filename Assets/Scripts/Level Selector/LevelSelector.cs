@@ -1,14 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Object = UnityEngine.Object;
 
 public class LevelSelector : MonoBehaviour
 {
     private static Scene scene;
+    private SoundControl _soundControl;
 
     private void Awake() {
         setCurrentScene();
+    }
+
+    private void Start()
+    {
+        _soundControl = Object.FindObjectOfType<SoundControl>();
+        if(_soundControl == null){
+            Debug.Log("SoundControl is null.");
+        }
     }
 
     public void Select(string levelName){
@@ -26,7 +37,12 @@ public class LevelSelector : MonoBehaviour
     }
 
     private void Update() {
-        if(Input.GetKey(KeyCode.Escape) && scene.name == "LevelSelect"){
+        if(Input.GetKey(KeyCode.Escape) && scene.name == "Prison"){
+            if (_soundControl)
+            {
+                _soundControl.stopInGameSound();
+            }
+
             Select("Menu");
         }
     }

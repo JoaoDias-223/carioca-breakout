@@ -8,23 +8,20 @@ using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
-    public TMPro.TMP_Dropdown qualityLevelDropdown;
-    public AudioMixer BKGMixer, SFXMixer;
-    public Slider BKGSlider, SFXSlider;
-    public TMPro.TMP_Text BKGPercentage, SFXPercentage;
-    public Toggle InvertControlsToggle;
+    public AudioMixer BKGMixer, SFXMixer, IGMMixer;
+    public Slider BKGSlider, SFXSlider, IGMSlider;
+    public TMPro.TMP_Text BKGPercentage, SFXPercentage, IGMPercentage;
 
-    private static float backgroundFloat, sfxFloat;
-    private static int qualityIndex;
+    private static float backgroundFloat, sfxFloat, igmFloat;
 
     private void Start() {
         BKGSlider.value = AudioManager.BKG_Volume;
         SFXSlider.value = AudioManager.SFX_Volume;
+        IGMSlider.value = AudioManager.IGM_Volume;
 
         SetMusicVolume(AudioManager.BKG_Volume);
         SetSFXVolume(AudioManager.SFX_Volume);
-        SetQuality(GraphicsManager.Quality_Index);
-        SetInvertedControls(ControlsManager.InvertedControls);
+        SetIGMVolume(AudioManager.IGM_Volume);
     }
 
     public void SetText(float value, TMPro.TMP_Text tmp_text)
@@ -47,23 +44,15 @@ public class SettingsMenu : MonoBehaviour
         AudioManager.SFX_Volume = volume;
     }
 
-    public void SetQuality(int qualityIndex){
-        QualitySettings.SetQualityLevel(qualityIndex);
-        qualityLevelDropdown.value = qualityIndex;
-        GraphicsManager.Quality_Index = qualityIndex;
-    }
-
-    public void SetInvertedControls(bool set)
-    {
-        ControlsManager.InvertedControls = set;
-        InvertControlsToggle.isOn = set;
+    public void SetIGMVolume(float volume){
+        IGMMixer.SetFloat("volume", volume);
+        SetText(volume, IGMPercentage);
+        AudioManager.IGM_Volume = volume;
     }
 
     public void SaveSettings()
     {
-        Debug.LogFormat("Saving setting:\n\tBKG: {0}  \n\tSFX:{1}  \n\tQuality: {2}", AudioManager.BKG_Volume, AudioManager.SFX_Volume, GraphicsManager.Quality_Index);
+        Debug.LogFormat("Saving setting:\n\tBKG: {0}  \n\tSFX:{1}  \n\tIGM: {2}", AudioManager.BKG_Volume, AudioManager.SFX_Volume, AudioManager.IGM_Volume);
         AudioManager.Save();
-        GraphicsManager.Save();
-        ControlsManager.Save();
     }
 }

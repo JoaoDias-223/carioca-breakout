@@ -14,10 +14,6 @@ public class Load : MonoBehaviour
 
         if(debug)
         {
-            if(canvas.activeSelf)
-            {
-                Utils.GetChildWithName(canvas, "FPS").GetComponent<ToggleUIElement>().Show();
-            }
             SceneManager.LoadScene(scene);
             return;
         }
