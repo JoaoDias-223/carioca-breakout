@@ -30,6 +30,8 @@ public class GuardAiMovement : MonoBehaviour
 
     public UnityEngine.AI.NavMeshAgent navMeshAgent;
 
+    [SerializeField] private bool loopOverWaypoint = false;
+
     private void Awake()
     {
         navMeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -139,9 +141,17 @@ public class GuardAiMovement : MonoBehaviour
 
         waypointIndex += goForward;
 
-        if (waypointIndex >= waypoints.Count - 1)
+        if (waypointIndex > waypoints.Count - 1)
         {
-            goForward = -1;
+            if (loopOverWaypoint)
+            {
+                waypointIndex = 0;
+            }
+            else
+            {
+                goForward = -1;
+                waypointIndex += goForward;
+            }
         }
         else if (waypointIndex < 1)
         {
