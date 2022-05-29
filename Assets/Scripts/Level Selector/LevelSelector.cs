@@ -35,7 +35,7 @@ public class LevelSelector : MonoBehaviour
     public static void setCurrentScene(){
         scene = SceneManager.GetActiveScene();
     }
-
+    
     private void Update() {
         if(Input.GetKey(KeyCode.Escape) && scene.name == "Prison"){
             if (_soundControl)
