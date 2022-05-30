@@ -335,7 +335,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pressiona ESPACO para pular
+  m_text: Pressione ESPACO para pular
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc658f1a1fc7ffa43a4555ff3167cf74, type: 2}
   m_sharedMaterial: {fileID: -7917522893697761690, guid: bc658f1a1fc7ffa43a4555ff3167cf74, type: 2}
