@@ -444,7 +444,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 99
-  m_Sprite: {fileID: -1609334868, guid: 290317449daa9c793a034b3d9bc3d047, type: 3}
+  m_Sprite: {fileID: 475704412, guid: ff38c185691be878ebc01f40fa70a2b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -486,7 +486,7 @@ Animator:
   m_GameObject: {fileID: 6531451191146723745}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c5f43a19a678498e58e0854223c6b8f6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 63f1132ab9c7c9114b7844d6ecb4392b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -542,3 +542,4 @@ MonoBehaviour:
   visionCollider: {fileID: 6531451190006430890}
   navMeshAgent: {fileID: 0}
   loopOverWaypoint: 0
+  game: {fileID: 0}
