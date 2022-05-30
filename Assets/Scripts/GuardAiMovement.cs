@@ -154,7 +154,7 @@ public class GuardAiMovement : MonoBehaviour
 
         waypointIndex += goForward;
 
-        if (waypointIndex > waypoints.Count - 1)
+        if (waypointIndex >= waypoints.Count)
         {
             if (loopOverWaypoint)
             {
